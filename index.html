@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>XBOX TRASH</title>
+    
+    <!-- CSS Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+     <!-- Java Script BootStrap-->   
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- CSS do Projeto-->
+    <link rel="stylesheet" href="style.css"> 
+    <!-- Fonte do Projeto -->
+   <link href="http://fonts.cdnfonts.com/css/century-gothic" rel="stylesheet">
+                
+</head>
+
+<body>
+  
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary-color" id="navbar">
+      <div class="container py-3">
+          	<a href="#" class="navbar-brand">
+              <img src="/img/lixeira.png"  width="80px" >
+              <span>XBOX TRASH</span>
+          	</a>
+          	<button 
+          class="navbar-toggler"
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbar-itens"
+          aria-controls="navbar-itens"
+          aria-expanded="false"
+          aria-label="toggle navigation"
+      		>
+          <i class="bi bi-list"> </i>
+          </button>
+          <div class="collapse navbar-collapse"id="navbar-items">
+              <ul class="navbar-nav me-auto mb-lg-0"></ul>
+              <ul class="nav-item">
+                  <a href="Projeto/index.html" class="nav-link active primary-color" >Início</a>
+              
+              </ul>
+              <ul class="nav-item">
+                  <a href="menus/games trash/games-trash.html" class="nav-link primary-color">Games Trash</a>
+              </ul>
+              <ul class="nav-item">
+                  <a href="menus/resenhas/resenha.html" class="nav-link primary-color">Resenhas</a>
+              </ul>
+              <ul class="nav-item">
+                  <a href="menus/contato/contato.html" class="nav-link primary-color">Contato</a>
+              </ul>
+              <ul class="nav-item">
+                <a href="menus/login/login.html" class="nav-link primary-color">Login</a>
+            </ul>
+          </div>
+      </div>     
+      </nav>
+    
+     <!--Slider-->
+     <div class="container" id="slider-container">
+
+      <div class="carousel slide" id="slider" data-bs-ride="carousel">
+
+          <div class="carousel-indicators">
+              <button
+              type="button" 
+              class="active"
+              data-bs-target="#slider"
+              data-bs-slide-to="0"
+              aria-current="true"
+              aria-label="Slide 1"
+              ></button>
+              <button
+              type="button" 
+              data-bs-target="#slider"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+              ></button>
+              <button
+              type="button" 
+              data-bs-target="#slider"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+              ></button>
+              <button
+              type="button" 
+              data-bs-target="#slider"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+              ></button>
+          </div>
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <img src="img/dark.jpg" alt="Jogo 1" class="d-block w-100">
+                  <div class="carousel-caption">
+                      <h5> Dark Souls</h5>
+                      <a href="#" class="btn btn-dark">CONFERIR RESENHA</a>
+                  </div>
+                  </div>
+              <div class="carousel-item">
+                  <img src="img/hades.jpg" alt="Jogo 2" class="d-block w-100">
+                  <div class="carousel-caption">
+                      <h5> Hades</h5>
+                      <a href="#" class="btn btn-dark">CONFERIR RESENHA</a>
+                  </div>
+                  </div>
+              <div class="carousel-item">
+                  <img src="img/outlast.jpg" alt="Jogo 3" class="d-block w-100">
+                  <div class="carousel-caption">
+                      <h5> Outlast</h5>
+                      <a href="#" class="btn btn-dark">CONFERIR RESENHA</a>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                  <img src="img/r8.jpg" alt="Jogo 4" class="d-block w-100">
+                  <div class="carousel-caption">
+                        <h5> Resident Evil</h5>
+                        <a href="#" class="btn btn-dark">CONFERIR RESENHA</a>
+                  </div>
+              </div>
+          </div>
+          <button 
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#slider" 
+          data-bs-slide="prev"
+          >
+          <i class="bi bi-chevron-compact-left"></i>
+          <span class="visually-hidden">Anterior</span>
+      </button>
+      <button 
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#slider" 
+          data-bs-slide="next"
+          >
+          <i class="bi bi-chevron-compact-right"></i>
+          <span class="visually-hidden">Próximo</span>
+      </button>
+      </div>
+  </div>
+
+     <!--Cartão--> 
+    <div class="card"  style=" width: 1350px; ">
+  		<div class="row g-0">
+    	<div class="col-md-5">
+      	<img src="comunidade.jpg" class="img-fluid rounded-start" >
+    </div>
+    <div class="col-md-7">
+      	<div class="card-body">
+        <h4 class="card-title">Sobre nós</h4> <br> 
+        <p class="card-text">Xbox Trash é uma empresa que busca tornar acessível a compra de jogos para aqueles usuários que não possuem condições de comprar jogos em mídia física. Jogadores que tem jogos que ficam guardados na gaveta ou, até mesmo se arrependeram de comprarem, o Xbox Trash fornece a opção de oferecer esses jogos a um custo baixo e acessível. 
+        <p class="card-text">Também temos como objetivo facilitar a interação entre os úsuarios, oferencendo uma página exclusiva para desenvolvimento de opinões e comentários. Esperamos que com essas ferramentas, todos possam interagir e desfrutarem ainda mais do Xbox!  </p>
+        <p class="card-text"><small class="text-muted"> <strong>CEO - Eneas Gandolfi</small></p>
+    </div>
+    </div>
+  	</div>
+	</div>
+     
+  </div> 
+  </main> 
+  </body>
+    
