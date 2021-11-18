@@ -77,7 +77,7 @@ session_start();
     
           </div>
           <div class="col">
-          <form method="POST" action= "javascript:submit(document.getElementById('xbox').value)"><br><br><br><br><br><br>
+          <form method="POST" action= "javascript:submit(document.getElementById('envia').value)"><br><br><br><br><br><br>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Nome</label>
                   <input type="name" class="form-control" name="Nome">
@@ -98,7 +98,7 @@ session_start();
         
         <!--Script java-->
         <script>
-          async function submit(xbox) {
+          async function submit(envia) {
               const request = await fetch('https://jw980xde84.execute-api.sa-east-1.amazonaws.com/prod', {
                   method: 'POST',
                   headers: {
