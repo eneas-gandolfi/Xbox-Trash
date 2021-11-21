@@ -1,33 +1,69 @@
-function fazPost(url, body) {
-    console.log("Body=", body)
-    let request = new XMLHttpRequest()
-    request.open("POST", url, true)
-    request.setRequestHeader("Content-type", "application/json")
-    request.send(JSON.stringify(body))
+const randomBytes = require('crypto').randomBytes;
+const AWS = require('aws-sdk');
+const ddb = new AWS.DynamoDB.DocumentClient();
 
-    request.onload = function() {
-        console.log(this.responseText)
-    }
+exports.handler = (event, context, callback) => {
+    console.log(event.nome);
+    /*
+    const requestBody = JSON.parse(event);
+    console.log(requestBody.nome);
+    const nome = requestBody.nome;
+    const email = requestBody.email;
+    const resenha = requestBody.resenha;
+    */
+    const nome = event.nome;
+    const email = event.email;
+    const resenha = event.resenha;
+    const codigo = toUrlString(randomBytes(16));
+    console.log(codigo);
 
-    return request.responseText
+    gravarResenha(codigo, nome, email, resenha).then(() => {
+        callback(null, {
+            statusCode: 201,
+            body: JSON.stringify({
+                codigo: codigo,
+                Nome: nome,
+                Email: email,
+                Resenha: resenha,
+            }),
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+        });
+    }).catch((err) => {
+        console.error(err);
+        errorResponse(err.message, context.awsRequestId, callback);
+    });
+};
+
+function gravarResenha(codigo, nome, email, resenha) {
+    return ddb.put({
+        TableName: 'Resenhas',
+        Item: {
+            codigo: codigo,
+            Nome: nome,
+            Email: email,
+            Resenha: resenha,
+        },
+    }).promise();
 }
 
+function toUrlString(buffer) {
+    return buffer.toString('base64')
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
+}
 
-function cadastraResenha() {
-    event.preventDefault()
-    let url = "arn:aws:execute-api:sa-east-1:522268834170:jw980xde84/*/POST/xbox-trash"
-    let nome = document.getElementById("nome").value
-    let email = document.getElementById("email").value
-    let resenha = document.getElementById("resenha").value
-    console.log(nome)
-    console.log(email)
-    console.log(resenha)
-
-    body = {
-        "name": nome,
-        "email": email,
-        "resenha": resenha
-    }
-
-    fazPost(url, body)
+function errorResponse(errorMessage, awsRequestId, callback) {
+  callback(null, {
+    statusCode: 500,
+    body: JSON.stringify({
+      Error: errorMessage,
+      Reference: awsRequestId,
+    }),
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
 }
