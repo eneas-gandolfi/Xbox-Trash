@@ -33,8 +33,8 @@ session_start();
         class="navbar-toggler"
         type="button" 
         data-bs-toggle="collapse" 
-        data-bs-target="#navbar-itens"
-        aria-controls="navbar-itens"
+        data-bs-target="#navbar-items"
+        aria-controls="navbar-items"
         aria-expanded="false"
         aria-label="toggle navigation"
     >
