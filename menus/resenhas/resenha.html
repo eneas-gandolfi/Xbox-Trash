@@ -67,27 +67,39 @@
           <div class="col">
     </div>
 
-        <div class="col">
-        <script src="post.js"></script> <br><br><br><br> <br>
-        <form onsubmit="cadastraResenha()">
-
-          <div class="mb-3">
-            <label for="nome">Nome:</label>
-            <input name="nome" id="nome" type="text" class="form-control"><br>
-            <div class="mb-3">  
-            <label for="email">Digite seu email:</label>
-            <input name="email" id="email" type="text" class="form-control"><br>
-            <div class="mb-3">
-            <label for="resenha">Digite sua resenha:</label>
-            <input for="resenha" id="resenha" type="text" class="form-control" rows="6">
-          </div>
-          <input name="envia" id="envia" type="submit" class="btn btn-dark" value="Cadastrar">
-        </div>
-        </div>
-      </form>
-        </div>
-      </div>
-
-    </div>
-    
-    
+    <form action="javascript:submit()"><br><br><br><br>
+      <label>Nome: </label>
+      <input id = "Nome" type="text" name="Nome" placeholder="Inserir o nome completo" class="form-control"><br>
+  
+      <label>E-mail: </label>
+      <input id="Email" type="email" name="Email" placeholder="Seu melhor e-mail" class="form-control"><br>            
+              
+      <label>Resenha: </label>
+      <textarea id="Resenha" name="Resenha" rows="6" cols="80" class="form-control"></textarea><br>
+  
+      <input type="submit" value="Enviar">
+  </form>
+  <script>
+      
+      async function submit() {
+         
+          var nome = document.getElementById("Nome").value;
+          var email = document.getElementById("Email").value;
+          var resenha = document.getElementById("Resenha").value; 
+          
+  
+          const request = await fetch('https://jw980xde84.execute-api.sa-east-1.amazonaws.com/prod/xbox-trash', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({"Nome": nome,"Email":email, "Resenha": resenha})
+          });
+          const content = await request.json();
+          console.log(content);
+  
+          alert("Resenha inserida com sucesso")
+      }
+  
+  </script>
+      
